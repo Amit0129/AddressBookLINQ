@@ -40,5 +40,12 @@ namespace AddressBookManegment
                 Console.WriteLine("-------------\n");
             }
         }
+        public void EditExistingContact(string firstName, string lastName, string column, string newValue)
+        {
+            DataRow contact = table.Select("FirstName = '" + firstName + "' and LastName = '" + lastName + "'").FirstOrDefault();
+            contact[column] = newValue;
+            Console.WriteLine("Record successfully Edited");
+            DisplayContacts();
+        }
     }
 }
