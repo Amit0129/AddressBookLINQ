@@ -89,5 +89,22 @@ namespace AddressBookManegment
                 Console.WriteLine("-------------\n");
             }
         }
+        public void SortedContactsByNameForAgivenCity(string City)
+        {
+            Console.WriteLine("Sorting by name for City---->");
+            var retrievedData = from records in table.AsEnumerable() where records.Field<string>("City") == City orderby records.Field<string>("FirstName") select records;
+            foreach (var row in retrievedData)
+            {
+                Console.WriteLine("FirstName :" + row["FirstName"]);
+                Console.WriteLine("LastName :" + row["LastName"]);
+                Console.WriteLine("Address :" + row["Address"]);
+                Console.WriteLine("City :" + row["City"]);
+                Console.WriteLine("State :" + row["State"]);
+                Console.WriteLine("Zip :" + row["Zip"]);
+                Console.WriteLine("PhoneNumber :" + row["PhoneNumber"]);
+                Console.WriteLine("Email :" + row["Email"]);
+                Console.WriteLine("-------------\n");
+            }
+        }
     }
 }

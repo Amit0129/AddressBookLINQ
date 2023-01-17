@@ -12,6 +12,7 @@
             addressBookManagment.DeleteContact("Smruti", "Ranjan");
             addressBookManagment.RetrieveByCity("Dhenkanal");
             addressBookManagment.RetrieveByState("Odisha");
+            addressBookManagment.SortedContactsByNameForAgivenCity("Dhenkanal");
         }
     }
 }
