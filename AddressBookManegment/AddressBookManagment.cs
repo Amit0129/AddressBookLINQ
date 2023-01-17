@@ -21,6 +21,7 @@ namespace AddressBookManegment
             table.Columns.Add("PhoneNumber", typeof(long));
             table.Columns.Add("Email", typeof(string));
             table.Rows.Add("Amit", "Nayak", "Jiral", "Dhenkanal", "Odisha", 890890, 8908908908, "amit@gmail.com");
+            table.Rows.Add("Kumar", "Nayak", "Dhighi", "Dhenkanal", "Odisha", 890890, 8908908908, "amit@gmail.com");
             table.Rows.Add("Manit", "Nayak", "Vatika", "IMT", "Hariyana", 900908, 9090909090, "manit@gmail.com");
             table.Rows.Add("Smruti", "Ranjan", "Knowhere", "Cool", "Marse", 098098, 9438943894, "bana@gmail.com.");
         }
@@ -53,6 +54,23 @@ namespace AddressBookManegment
             table.Rows.Remove(contact);
             Console.WriteLine("\nRecord Successfully Deleted");
             DisplayContacts();
+        }
+        public void RetrieveByCity(string city)
+        {
+            var retrieveData = from records in table.AsEnumerable() where records.Field<string>("City") == city select records;
+            Console.WriteLine("Retrieve contact details by city name ---->");
+            foreach (DataRow row in retrieveData)
+            {
+                Console.WriteLine("FirstName :" + row["FirstName"]);
+                Console.WriteLine("LastName :" + row["LastName"]);
+                Console.WriteLine("Address :" + row["Address"]);
+                Console.WriteLine("City :" + row["City"]);
+                Console.WriteLine("State :" + row["State"]);
+                Console.WriteLine("Zip :" + row["Zip"]);
+                Console.WriteLine("PhoneNumber :" + row["PhoneNumber"]);
+                Console.WriteLine("Email :" + row["Email"]);
+                Console.WriteLine("-------------\n");
+            }
         }
     }
 }
