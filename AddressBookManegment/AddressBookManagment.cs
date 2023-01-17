@@ -47,5 +47,12 @@ namespace AddressBookManegment
             Console.WriteLine("Record successfully Edited");
             DisplayContacts();
         }
+        public void DeleteContact(string firstName, string lastName)
+        {
+            DataRow contact = table.Select("FirstName = '" + firstName + "' and LastName = '" + lastName + "'").FirstOrDefault();
+            table.Rows.Remove(contact);
+            Console.WriteLine("\nRecord Successfully Deleted");
+            DisplayContacts();
+        }
     }
 }
