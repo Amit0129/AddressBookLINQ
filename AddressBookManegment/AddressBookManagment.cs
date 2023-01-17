@@ -24,5 +24,21 @@ namespace AddressBookManegment
             table.Rows.Add("Manit", "Nayak", "Vatika", "IMT", "Hariyana", 900908, 9090909090, "manit@gmail.com");
             table.Rows.Add("Smruti", "Ranjan", "Knowhere", "Cool", "Marse", 098098, 9438943894, "bana@gmail.com.");
         }
+        public void DisplayContacts()
+        {
+            Console.WriteLine("\n~~~~~~~Contacts in DataTable~~~~~~~");
+            foreach (DataRow row in table.Rows)
+            {
+                Console.WriteLine("FirstName :" + row["FirstName"]);
+                Console.WriteLine("LastName :" + row["LastName"]);
+                Console.WriteLine("Address :" + row["Address"]);
+                Console.WriteLine("City :" + row["City"]);
+                Console.WriteLine("State :" + row["State"]);
+                Console.WriteLine("Zip :" + row["Zip"]);
+                Console.WriteLine("PhoneNumber :" + row["PhoneNumber"]);
+                Console.WriteLine("Email :" + row["Email"]);
+                Console.WriteLine("-------------\n");
+            }
+        }
     }
 }
